@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claudia Shop | Penjualan & Retur</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><b>CL</b><strong>Claudia Shop</strong></div>
+    <p class="label">OPERASIONAL TOKO</p>
+    <nav>
+      <button class="nav active" data-page="dashboard">▦ <span>Dashboard</span></button>
+      <button class="nav" data-page="sales">↗ <span>Penjualan</span></button>
+      <button class="nav" data-page="returns">↩ <span>Retur barang</span></button>
+      <button class="nav" data-page="products">□ <span>Produk & stok</span></button>
+    </nav>
+    <div class="profile"><i>CL</i><span><b>Claudia</b><small>Administrator</small></span></div>
+  </aside>
+  <main>
+    <header><div class="mobile-menu" id="mobileMenu">☰</div><div><small>SENIN, 25 SEPTEMBER 2026</small><h1 id="title">Ringkasan hari ini</h1></div><div class="header-actions"><span class="online">● Mode demo</span><button class="primary" id="newSale">+ Transaksi baru</button></div></header>
+
+    <section class="page active" id="dashboard">
+      <div class="intro"><div><h2>Selamat datang, Claudia.</h2><p>Pantau penjualan, stok, dan retur dari satu tempat.</p></div><span class="date">September 2026⌄</span></div>
+      <div class="stats"><article class="highlight"><small>PENDAPATAN BULAN INI</small><strong id="revenue">Rp 0</strong><em>↑ 12,8% dari bulan lalu</em></article><article><small>PRODUK AKTIF</small><strong id="productCount">0</strong><em>Katalog tersedia</em></article><article><small>STOK MENIPIS</small><strong id="lowStock">0</strong><em class="warning">Perlu restock segera</em></article><article><small>RETUR MENUNGGU</small><strong id="pendingReturns">0</strong><em>Perlu ditinjau</em></article></div>
+      <div class="columns"><section class="panel"><div class="panel-head"><div><h3>Penjualan terbaru</h3><p>Transaksi terakhir yang masuk</p></div><button class="link" data-go="sales">Lihat semua →</button></div><div class="table-wrap"><table><thead><tr><th>INVOICE</th><th>PELANGGAN</th><th>TANGGAL</th><th>TOTAL</th><th>STATUS</th></tr></thead><tbody id="recentSales"></tbody></table></div></section><section class="panel"><div class="panel-head"><div><h3>Stok menipis</h3><p>Prioritas pengadaan barang</p></div><button class="link" data-go="products">Semua stok →</button></div><div id="lowStockList" class="stock-list"></div></section></div>
+    </section>
+
+    <section class="page" id="sales"><div class="section-title"><div><small>MODUL PENJUALAN</small><h2>Semua penjualan</h2><p>Kelola transaksi dan pantau pembayaran.</p></div><button class="primary" id="newSale2">+ Transaksi baru</button></div><section class="panel"><div class="filters"><input id="salesSearch" placeholder="Cari invoice atau pelanggan..."><select><option>Semua status</option><option>Selesai</option><option>Draft</option></select></div><div class="table-wrap"><table><thead><tr><th>INVOICE</th><th>PELANGGAN</th><th>TANGGAL</th><th>TOTAL</th><th>STATUS</th></tr></thead><tbody id="salesTable"></tbody></table></div></section></section>
+
+    <section class="page" id="returns"><div class="section-title"><div><small>MODUL RETUR</small><h2>Retur barang</h2><p>Periksa pengajuan retur dan pengembalian dana.</p></div><button class="secondary" id="newReturn">+ Ajukan retur</button></div><section class="panel"><div class="filters"><input id="returnsSearch" placeholder="Cari nomor retur atau pelanggan..."><select><option>Semua status</option><option>Diproses</option><option>Selesai</option></select></div><div class="table-wrap"><table><thead><tr><th>NOMOR RETUR</th><th>PELANGGAN</th><th>TANGGAL</th><th>REFUND</th><th>STATUS</th></tr></thead><tbody id="returnsTable"></tbody></table></div></section></section>
+
+    <section class="page" id="products"><div class="section-title"><div><small>INVENTARIS</small><h2>Produk & stok</h2><p>Kelola katalog gadget dan ketersediaan barang.</p></div><button class="primary" id="newProduct">+ Tambah produk</button></div><section class="panel"><div class="filters"><input id="productsSearch" placeholder="Cari nama, SKU, atau brand..."><select><option>Semua kategori</option><option>Smartphone</option><option>Laptop</option><option>Aksesoris</option></select></div><div class="table-wrap"><table><thead><tr><th>PRODUK</th><th>SKU</th><th>KATEGORI</th><th>HARGA</th><th>STOK</th></tr></thead><tbody id="productsTable"></tbody></table></div></section></section>
+  </main>
+
+  <div class="modal-bg" id="modalBg" hidden><div class="modal"><button class="close" id="closeModal">×</button><small id="modalLabel">TRANSAKSI</small><h2 id="modalTitle">Transaksi baru</h2><p>Isi data untuk mencatat aktivitas.</p><form id="form"><label>Pelanggan<input name="customer" required placeholder="Nama pelanggan"></label><label>Produk<select name="product" id="productSelect"></select></label><label>Jumlah<input name="quantity" type="number" min="1" value="1"></label><label>Catatan<textarea name="notes" rows="3" placeholder="Opsional"></textarea></label><div class="modal-actions"><button type="button" class="ghost" id="cancelModal">Batal</button><button class="primary">Simpan</button></div></form></div></div><div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
